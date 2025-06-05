@@ -188,6 +188,9 @@
     .typing-dot:nth-child(3) {
       animation-delay: 0.4s;
     }
+    .code-input {
+  max-width: 100%;
+}
     @keyframes typing-bounce {
       0%, 60%, 100% {
         transform: translateY(0);
@@ -348,52 +351,64 @@
         width: 80%;
         right: -80%;
       }
-    }
-    @media (max-width: 576px) {
-      body {
-        padding: 0;
-      }
-      .container {
-        max-width: 100%;
-        width: 100%;
-        height: 100vh;
-        padding: 10px;
-        background: none;
-        backdrop-filter: none;
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-      }
-      h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.8rem;
-      }
-      .chat-area {
-        padding: 10px;
-        border-radius: 0;
-      }
-      .message {
-        max-width: 80%;
-        font-size: 0.9rem;
-        padding: 10px 14px;
-      }
-      #prompt, #codeLanguage, #codePrompt, #sendBtn, #micBtn, #codeBtn, #chatBtn, #generateCodeBtn {
-        font-size: 0.7rem;
-        padding: 8px;
-      }
-      #sendBtn, #micBtn, #codeBtn, #chatBtn, #generateCodeBtn {
-        padding: 10px;
-        width: 40px;
-        height: 40px;
-      }
-      .sidebar {
-        width: 85%;
-        right: -85%;
-      }
-      #codeLanguage {
-        flex: 0 0 120px;
-      }
-    }
+    }@media (max-width: 576px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    background: none;
+    backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .chat-area {
+    padding: 10px;
+    border-radius: 0;
+  }
+  .message {
+    max-width: 80%;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+  .input-group {
+    flex-wrap: wrap; /* Allow wrapping to prevent overflow */
+  }
+  .chat-input, .code-input {
+    flex-wrap: wrap; /* Ensure elements wrap in code mode */
+    gap: 5px; /* Add small gap between elements */
+  }
+  #prompt, #codeLanguage, #codePrompt {
+    font-size: 0.7rem;
+    padding: 8px;
+    margin-right: 5px; /* Reduce margin to save space */
+    flex: 1; /* Allow inputs to shrink proportionally */
+    min-width: 0; /* Prevent inputs from overflowing */
+  }
+  #codeLanguage {
+    flex: 0 0 80px; /* Reduce width of codeLanguage input */
+    max-width: 80px; /* Ensure it doesn't grow too wide */
+  }
+  #sendBtn, #micBtn, #codeBtn, #chatBtn, #generateCodeBtn {
+    font-size: 0.7rem;
+    padding: 8px;
+    width: 36px; /* Slightly smaller buttons */
+    height: 36px;
+    margin-left: 5px; /* Reduce margin */
+  }
+  .sidebar {
+    width: 85%;
+    right: -85%;
+  }
+}
     @media (max-width: 400px) {
       .container {
         padding: 5px;
