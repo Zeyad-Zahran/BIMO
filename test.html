@@ -1,99 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-<title>Calculator</title>
-<style>
-body {
-  font-family: sans-serif;
-}
-.calculator {
-  width: 300px;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-}
-.calculator input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-.calculator button {
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  font-size: 18px;
-  cursor: pointer;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر العطور</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            direction: rtl; /* لتغيير اتجاه النص إلى اليمين */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product {
+            display: inline-block;
+            width: 20%;
+            margin: 1%;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            vertical-align: top; /*لتجنب مشاكل المحاذاة الرأسية */
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product h3 {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .product p {
+            color: #555;
+        }
+
+        .product .price {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+
+        /* ألوان إضافية (يمكن تعديلها حسب الرغبة) */
+        .product:nth-child(1) { background-color: #f2f2f2; }
+        .product:nth-child(2) { background-color: #e6f2ff; }
+        .product:nth-child(3) { background-color: #fff0f5; }
+        .product:nth-child(4) { background-color: #fffacd; }
+        .product:nth-child(5) { background-color: #d5f5e3; }
+        .product:nth-child(6) { background-color: #f2e6ff; }
+        .product:nth-child(7) { background-color: #fff8dc; }
+        .product:nth-child(8) { background-color: #e0ffff; }
+        .product:nth-child(9) { background-color: #ffebcd; }
+        .product:nth-child(10) { background-color: #f0f8ff; }
+
+    </style>
 </head>
 <body>
-
-<div class="calculator">
-  <input type="text" id="display" readonly>
-  <div>
-    <button onclick="appendNumber('7')">7</button>
-    <button onclick="appendNumber('8')">8</button>
-    <button onclick="appendNumber('9')">9</button>
-    <button onclick="appendOperator('/')">/</button>
-  </div>
-  <div>
-    <button onclick="appendNumber('4')">4</button>
-    <button onclick="appendNumber('5')">5</button>
-    <button onclick="appendNumber('6')">6</button>
-    <button onclick="appendOperator('*')">*</button>
-  </div>
-  <div>
-    <button onclick="appendNumber('1')">1</button>
-    <button onclick="appendNumber('2')">2</button>
-    <button onclick="appendNumber('3')">3</button>
-    <button onclick="appendOperator('-')">-</button>
-  </div>
-  <div>
-    <button onclick="appendNumber('0')">0</button>
-    <button onclick="appendDecimal('.')">.</button>
-    <button onclick="calculate()">=</button>
-    <button onclick="appendOperator('+')">+</button>
-  </div>
-  <button onclick="clearDisplay()">C</button>
-</div>
-
-<script>
-  let display = document.getElementById('display');
-  let currentInput = '';
-
-  function appendNumber(num) {
-    currentInput += num;
-    display.value = currentInput;
-  }
-
-  function appendOperator(operator) {
-    currentInput += operator;
-    display.value = currentInput;
-  }
-
-  function appendDecimal(decimal) {
-    if (!currentInput.includes('.')) {
-      currentInput += decimal;
-      display.value = currentInput;
-    }
-  }
-
-  function calculate() {
-    try {
-      currentInput = eval(currentInput);
-      display.value = currentInput;
-    } catch (error) {
-      display.value = 'Error';
-    }
-  }
-
-  function clearDisplay() {
-    currentInput = '';
-    display.value = '';
-  }
-</script>
-
+    <div class="container">
+        <h1>متجر العطور</h1>
+        <div class="products">
+            <div class="product">
+                <img src="perfume1.jpg" alt="عطر 1">
+                <h3>عطر فاخر</h3>
+                <p>وصف العطر</p>
+                <p class="price">100$</p>
+            </div>
+            <div class="product">
+                <img src="perfume2.jpg" alt="عطر 2">
+                <h3>عطر منعش</h3>
+                <p>وصف العطر</p>
+                <p class="price">80$</p>
+            </div>
+            <div class="product">
+                <img src="perfume3.jpg" alt="عطر 3">
+                <h3>عطر شرقي</h3>
+                <p>وصف العطر</p>
+                <p class="price">120$</p>
+            </div>
+            <div class="product">
+                <img src="perfume4.jpg" alt="عطر 4">
+                <h3>عطر زهري</h3>
+                <p>وصف العطر</p>
+                <p class="price">90$</p>
+            </div>
+            <div class="product">
+                <img src="perfume5.jpg" alt="عطر 5">
+                <h3>عطر خشبي</h3>
+                <p>وصف العطر</p>
+                <p class="price">110$</p>
+            </div>
+            <div class="product">
+                <img src="perfume6.jpg" alt="عطر 6">
+                <h3>عطر فواح</h3>
+                <p>وصف العطر</p>
+                <p class="price">70$</p>
+            </div>
+            <div class="product">
+                <img src="perfume7.jpg" alt="عطر 7">
+                <h3>عطر حلو</h3>
+                <p>وصف العطر</p>
+                <p class="price">130$</p>
+            </div>
+            <div class="product">
+                <img src="perfume8.jpg" alt="عطر 8">
+                <h3>عطر منعش</h3>
+                <p>وصف العطر</p>
+                <p class="price">85$</p>
+            </div>
+            <div class="product">
+                <img src="perfume9.jpg" alt="عطر 9">
+                <h3>عطر حار</h3>
+                <p>وصف العطر</p>
+                <p class="price">105$</p>
+            </div>
+            <div class="product">
+                <img src="perfume10.jpg" alt="عطر 10">
+                <h3>عطر فاكهي</h3>
+                <p>وصف العطر</p>
+                <p class="price">95$</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
