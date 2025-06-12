@@ -1,137 +1,143 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر العطور</title>
+    <title>موقع مع فيديو خلفية متحرك</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* CSS هنا */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            direction: rtl; /* لتغيير اتجاه النص إلى اليمين */
+            box-sizing: border-box;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow-x: hidden;
         }
-
-        .product {
-            display: inline-block;
-            width: 20%;
-            margin: 1%;
-            padding: 10px;
+        
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            vertical-align: top; /*لتجنب مشاكل المحاذاة الرأسية */
+            overflow: hidden;
         }
-
-        .product img {
-            max-width: 100%;
-            height: auto;
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
-
-        .product h3 {
-            margin-top: 10px;
-            color: #333;
+        
+        .content {
+            z-index: 1;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            max-width: 800px;
         }
-
-        .product p {
-            color: #555;
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
-
-        .product .price {
-            color: #e74c3c;
-            font-weight: bold;
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
-
-
-        /* ألوان إضافية (يمكن تعديلها حسب الرغبة) */
-        .product:nth-child(1) { background-color: #f2f2f2; }
-        .product:nth-child(2) { background-color: #e6f2ff; }
-        .product:nth-child(3) { background-color: #fff0f5; }
-        .product:nth-child(4) { background-color: #fffacd; }
-        .product:nth-child(5) { background-color: #d5f5e3; }
-        .product:nth-child(6) { background-color: #f2e6ff; }
-        .product:nth-child(7) { background-color: #fff8dc; }
-        .product:nth-child(8) { background-color: #e0ffff; }
-        .product:nth-child(9) { background-color: #ffebcd; }
-        .product:nth-child(10) { background-color: #f0f8ff; }
-
+        
+        .speed-control {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .speed-control label {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .speed-control input {
+            width: 200px;
+        }
+        
+        .other-content {
+            padding: 50px 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>متجر العطور</h1>
-        <div class="products">
-            <div class="product">
-                <img src="perfume1.jpg" alt="عطر 1">
-                <h3>عطر فاخر</h3>
-                <p>وصف العطر</p>
-                <p class="price">100$</p>
-            </div>
-            <div class="product">
-                <img src="perfume2.jpg" alt="عطر 2">
-                <h3>عطر منعش</h3>
-                <p>وصف العطر</p>
-                <p class="price">80$</p>
-            </div>
-            <div class="product">
-                <img src="perfume3.jpg" alt="عطر 3">
-                <h3>عطر شرقي</h3>
-                <p>وصف العطر</p>
-                <p class="price">120$</p>
-            </div>
-            <div class="product">
-                <img src="perfume4.jpg" alt="عطر 4">
-                <h3>عطر زهري</h3>
-                <p>وصف العطر</p>
-                <p class="price">90$</p>
-            </div>
-            <div class="product">
-                <img src="perfume5.jpg" alt="عطر 5">
-                <h3>عطر خشبي</h3>
-                <p>وصف العطر</p>
-                <p class="price">110$</p>
-            </div>
-            <div class="product">
-                <img src="perfume6.jpg" alt="عطر 6">
-                <h3>عطر فواح</h3>
-                <p>وصف العطر</p>
-                <p class="price">70$</p>
-            </div>
-            <div class="product">
-                <img src="perfume7.jpg" alt="عطر 7">
-                <h3>عطر حلو</h3>
-                <p>وصف العطر</p>
-                <p class="price">130$</p>
-            </div>
-            <div class="product">
-                <img src="perfume8.jpg" alt="عطر 8">
-                <h3>عطر منعش</h3>
-                <p>وصف العطر</p>
-                <p class="price">85$</p>
-            </div>
-            <div class="product">
-                <img src="perfume9.jpg" alt="عطر 9">
-                <h3>عطر حار</h3>
-                <p>وصف العطر</p>
-                <p class="price">105$</p>
-            </div>
-            <div class="product">
-                <img src="perfume10.jpg" alt="عطر 10">
-                <h3>عطر فاكهي</h3>
-                <p>وصف العطر</p>
-                <p class="price">95$</p>
+    <!-- HTML هنا -->
+    <section class="hero-section">
+        <video class="video-background" autoplay muted loop>
+            <a href="https://www.vecteezy.com/video/11083478-looped-3d-animation-of-geometric-shapes-bouncing-ball">looped-3d-animation-of-geometric-shapes-bouncing-ball Stock Videos by Vecteezy</a>            متصفحك لا يدعم تشغيل الفيديو
+        </video>
+        
+        <div class="content">
+            <h1>مرحبًا بكم في موقعنا</h1>
+            <p>هذا الموقع يحتوي على فيديو خلفية متحرك يمكنك التحكم في سرعته</p>
+            
+            <div class="speed-control">
+                <label for="speed">سرعة الفيديو:</label>
+                <input type="range" id="speed" min="0.1" max="3" step="0.1" value="1">
+                <span id="speed-value">1x</span>
             </div>
         </div>
-    </div>
+    </section>
+    
+    <section class="other-content">
+        <h2>محتوى إضافي</h2>
+        <p>هذا قسم آخر من الموقع لتجربة التمرير</p>
+    </section>
+
+    <script>
+        // JavaScript هنا
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-background');
+            const speedControl = document.getElementById('speed');
+            const speedValue = document.getElementById('speed-value');
+            
+            // ضبط السرعة الافتراضية
+            video.playbackRate = 1;
+            
+            // التحكم في سرعة الفيديو
+            speedControl.addEventListener('input', function() {
+                const speed = this.value;
+                video.playbackRate = speed;
+                speedValue.textContent = speed + 'x';
+            });
+            
+            // التأكد من أن الفيديو يعاد تشغيله إذا توقف
+            video.addEventListener('ended', function() {
+                video.currentTime = 0;
+                video.play();
+            });
+            
+            // بدء تشغيل الفيديو إذا كان متوقفًا (لبعض المتصفحات)
+            function attemptPlay() {
+                video.play().catch(error => {
+                    console.log('تشغيل الفيديو تلقائيًا غير مسموح:', error);
+                });
+            }
+            
+            attemptPlay();
+        });
+    </script>
 </body>
 </html>

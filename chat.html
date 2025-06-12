@@ -497,7 +497,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const apiKey = "AIzaSyAepPAkAhAL-db7nmnerqejjOpKQYRiunA"; // ← استبدل هذا بمفتاحك
+    const apiKey = "AIzaSyB7YsXWxDR_gMuJxM_lUnnsTPLigRoZtNo"; // ← استبدل هذا بمفتاحك
 
     function generateUUID() {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -828,7 +828,7 @@ const systemInstruction = `
 
       try {
         const res = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${apiKey}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
