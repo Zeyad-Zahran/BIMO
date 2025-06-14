@@ -1,3 +1,4 @@
+
     body {
       font-family: 'Cairo', sans-serif;
       background: linear-gradient(135deg, #1e3a8a, #3b0764);
@@ -100,7 +101,7 @@
     .code-input {
       display: none;
     }
-    #prompt, #codeLanguage, #codePrompt {
+    #prompt, #codePrompt {
       background: rgba(255, 255, 255, 0.1);
       color: #fff;
       border: none;
@@ -110,9 +111,24 @@
       transition: all 0.3s ease;
       flex: 1;
       margin-right: 10px;
+      resize: vertical; /* Allow vertical resizing only */
+      min-height: 44px; /* Minimum height */
+      max-height: 150px; /* Maximum height */
+      overflow-y: auto; /* Add vertical scrollbar if needed */
+      white-space: normal; /* Allow text to wrap to next line */
+      overflow-wrap: break-word; /* Wrap text at the end of the width */
+      height: auto; /* Allow dynamic height adjustment */
     }
     #codeLanguage {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 50px 12px 15px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
       flex: 0 0 150px;
+      margin-right: 10px;
     }
     #prompt::placeholder, #codeLanguage::placeholder, #codePrompt::placeholder {
       color: #ffffff99;
@@ -121,6 +137,7 @@
       background: rgba(255, 255, 255, 0.2);
       box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
       border-color: #f97316;
+      outline: none;
     }
     #sendBtn, #micBtn, #codeBtn, #chatBtn, #generateCodeBtn {
       background: #f97316;
@@ -175,8 +192,8 @@
       animation-delay: 0.4s;
     }
     .code-input {
-  max-width: 100%;
-}
+      max-width: 100%;
+    }
     @keyframes typing-bounce {
       0%, 60%, 100% {
         transform: translateY(0);
@@ -327,6 +344,17 @@
     #codeOutput.active {
       display: block;
     }
+    #prompt::-webkit-scrollbar, #codePrompt::-webkit-scrollbar {
+      width: 6px;
+    }
+    #prompt::-webkit-scrollbar-track, #codePrompt::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    #prompt::-webkit-scrollbar-thumb, #codePrompt::-webkit-scrollbar-thumb {
+      background: #f97316;
+      border-radius: 10px;
+    }
     @media (max-width: 768px) {
       .container {
         height: 100vh;
@@ -337,64 +365,66 @@
         width: 80%;
         right: -80%;
       }
-    }@media (max-width: 576px) {
-  body {
-    padding: 0;
-  }
-  .container {
-    max-width: 100%;
-    width: 100%;
-    height: 100vh;
-    padding: 10px;
-    background: none;
-    backdrop-filter: none;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-  }
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-  }
-  .chat-area {
-    padding: 10px;
-    border-radius: 0;
-  }
-  .message {
-    max-width: 80%;
-    font-size: 0.9rem;
-    padding: 10px 14px;
-  }
-  .input-group {
-    flex-wrap: wrap; /* Allow wrapping to prevent overflow */
-  }
-  .chat-input, .code-input {
-    flex-wrap: wrap; /* Ensure elements wrap in code mode */
-    gap: 5px; /* Add small gap between elements */
-  }
-  #prompt, #codeLanguage, #codePrompt {
-    font-size: 0.7rem;
-    padding: 8px;
-    margin-right: 5px; /* Reduce margin to save space */
-    flex: 1; /* Allow inputs to shrink proportionally */
-    min-width: 0; /* Prevent inputs from overflowing */
-  }
-  #codeLanguage {
-    flex: 0 0 80px; /* Reduce width of codeLanguage input */
-    max-width: 80px; /* Ensure it doesn't grow too wide */
-  }
-  #sendBtn, #micBtn, #codeBtn, #chatBtn, #generateCodeBtn {
-    font-size: 0.7rem;
-    padding: 8px;
-    width: 36px; /* Slightly smaller buttons */
-    height: 36px;
-    margin-left: 5px; /* Reduce margin */
-  }
-  .sidebar {
-    width: 85%;
-    right: -85%;
-  }
-}
+    }
+    @media (max-width: 576px) {
+      body {
+        padding: 0;
+      }
+      .container {
+        max-width: 100%;
+        width: 100%;
+        height: 100vh;
+        padding: 10px;
+        background: none;
+        backdrop-filter: none;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
+      .chat-area {
+        padding: 10px;
+        border-radius: 0;
+      }
+      .message {
+        max-width: 80%;
+        font-size: 0.9rem;
+        padding: 10px 14px;
+      }
+      .input-group {
+        flex-wrap: wrap;
+      }
+      .chat-input, .code-input {
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      #prompt, #codeLanguage, #codePrompt {
+        font-size: 0.7rem;
+        padding: 8px;
+        margin-right: 5px;
+        flex: 1;
+        min-width: 0;
+        min-height: 36px;
+      }
+      #codeLanguage {
+        flex: 0 0 80px;
+        max-width: 80px;
+      }
+      #sendBtn, #micBtn, #codeBtn, #chatBtn, #generateCodeBtn {
+        font-size: 0.7rem;
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+        margin-left: 5px;
+      }
+      .sidebar {
+        width: 85%;
+        right: -85%;
+      }
+    }
     @media (max-width: 400px) {
       .container {
         padding: 5px;
